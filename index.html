@@ -59,7 +59,15 @@
 <!-- Appzi: Capture Insightful Feedback -->
 <script async src="https://w.appzi.io/bootstrap/bundle.js?token=vGfst"></script>
 <!-- End Appzi -->
+<!-- Plausible privacy based analytics -->
 <script async defer data-domain="adawg4.github.io" src="https://plausible.io/js/plausible.js"></script>
+<!-- End PS -->
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default%2CArray.prototype.find%2CArray.prototype.includes%2CPromise%2CObject.assign%2CObject.entries"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.css@7.3.1/themes/reset-min.css" integrity="sha256-t2ATOGCtAIZNnzER679jwcFcKYfLlw01gli6F6oszk8=" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.0.0/dist/algoliasearch-lite.umd.js" integrity="sha256-MfeKq2Aw9VAkaE9Caes2NOxQf6vUa8Av0JqcUXUGkd0=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.0.0/dist/instantsearch.production.min.js" integrity="sha256-6S7q0JJs/Kx4kb/fv0oMjS855QTz5Rc2hh9AkIUjUsk=" crossorigin="anonymous"></script>
 
 </head>
 
@@ -158,14 +166,9 @@ Gotdit allows experienced workers to market their knowledge to people who need i
         <h2 class="text-4xl  mb-2 text-white text-center">
           Try it for yourself!
         </h2>
-        <h3 class="text-2xl mb-8 text-gray-200">
-         Search box for agolia.
-        </h3>
-        <button
-          class="bg-white  rounded-full py-4 px-8 shadow-lg uppercase tracking-wider"
-        >
-          Search
-        </button>
+        <div id="searchbox"></div>
+
+     
       </div>
     </div>
   <section class="relative"><div
@@ -417,7 +420,7 @@ Gotdit allows experienced workers to market their knowledge to people who need i
   </div>  
 </body>
 <script type="text/javascript">
-  const searchClient = algoliasearch('5N8UIL7H78', '4340fe1b2b3cb1b436aaeb1f86afd4ef');
+const searchClient = algoliasearch('5N8UIL7H78', '4340fe1b2b3cb1b436aaeb1f86afd4ef');
 
 const search = instantsearch({
   indexName: 'prod_profile',
@@ -426,16 +429,17 @@ const search = instantsearch({
 
 search.addWidgets([
   instantsearch.widgets.searchBox({
-    container: '#searchbox',
+    container: document.querySelector('#searchbox'),
+
+  placeholder: 'Search for someone, your problem, or a specific role',
   }),
 
-  instantsearch.widgets.hits({
+  /*instantsearch.widgets.hits({
     container: '#hits',
-  })
+  })*/
 ]);
 
 search.start();
 </script>
-<script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.0.0/dist/algoliasearch-lite.umd.js" integrity="sha256-MfeKq2Aw9VAkaE9Caes2NOxQf6vUa8Av0JqcUXUGkd0=" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.0.0/dist/instantsearch.production.min.js" integrity="sha256-6S7q0JJs/Kx4kb/fv0oMjS855QTz5Rc2hh9AkIUjUsk=" crossorigin="anonymous"></script>
+
 </html>
