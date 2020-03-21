@@ -411,7 +411,7 @@ Gotdit allows experienced workers to market their knowledge to people who need i
 
   <script>
     function toggleNavbar(collapseID) {
-      document.getElementById(collapseID).classList.toggle("hidden");
+      document.getElementById(collapseID).classList.toggle("hidden"); 
       document.getElementById(collapseID).classList.toggle("block");
     }
   </script>
@@ -419,7 +419,8 @@ Gotdit allows experienced workers to market their knowledge to people who need i
 
   </div>  
 </body>
-<script type="text/javascript">
+<!--<script type="text/javascript">
+
 const searchClient = algoliasearch('5N8UIL7H78', '4340fe1b2b3cb1b436aaeb1f86afd4ef');
 
 const search = instantsearch({
@@ -430,16 +431,15 @@ const search = instantsearch({
 search.addWidgets([
   instantsearch.widgets.searchBox({
     container: document.querySelector('#searchbox'),
-
-  placeholder: 'Search for someone, your problem, or a specific role',
+    placeholder: 'Search for someone, your problem, or a specific role',
   }),
 
-  /*instantsearch.widgets.hits({
+  instantsearch.widgets.hits({
     container: '#hits',
-  })*/
+  })
 ]);
 
 search.start();
-</script>
+</script>-->
 
 </html>
