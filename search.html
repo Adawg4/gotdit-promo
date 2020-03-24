@@ -105,6 +105,30 @@
 		    <div id="pagination"></div>
 		  </div>
 		</div>
+<script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.0.0/dist/algoliasearch-lite.umd.js" integrity="sha256-MfeKq2Aw9VAkaE9Caes2NOxQf6vUa8Av0JqcUXUGkd0=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.0.0/dist/instantsearch.production.min.js" integrity="sha256-6S7q0JJs/Kx4kb/fv0oMjS855QTz5Rc2hh9AkIUjUsk=" crossorigin="anonymous"></script>
+<script type="text/javascript">
+
+const searchClient = algoliasearch('5N8UIL7H78', '4340fe1b2b3cb1b436aaeb1f86afd4ef');
+
+const search = instantsearch({
+  indexName: 'prod_profile',
+  searchClient,
+});
+
+search.addWidgets([
+  instantsearch.widgets.searchBox({
+    container: document.querySelector('#searchbox'),
+    placeholder: 'Search for someone, your problem, or a specific role.',
+  }),
+
+  instantsearch.widgets.hits({
+    container: '#hits',
+  })
+]);
+
+search.start();
+</script>
 
 
 		<!--Search card
@@ -156,31 +180,8 @@ Best available: x am/pm EST</span>
 </body>
 
 
-<script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.0.0/dist/algoliasearch-lite.umd.js" integrity="sha256-MfeKq2Aw9VAkaE9Caes2NOxQf6vUa8Av0JqcUXUGkd0=" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.0.0/dist/instantsearch.production.min.js" integrity="sha256-6S7q0JJs/Kx4kb/fv0oMjS855QTz5Rc2hh9AkIUjUsk=" crossorigin="anonymous"></script>
 
-<script type="text/javascript">
 
-const searchClient = algoliasearch('5N8UIL7H78', '4340fe1b2b3cb1b436aaeb1f86afd4ef');
-
-const search = instantsearch({
-  indexName: 'prod_profile',
-  searchClient,
-});
-
-search.addWidgets([
-  instantsearch.widgets.searchBox({
-    container: document.querySelector('#searchbox'),
-    placeholder: 'Search for someone, your problem, or a specific role',
-  }),
-
-  instantsearch.widgets.hits({
-    container: '#hits',
-  })
-]);
-
-search.start();
-</script>
 
 
 </html>
