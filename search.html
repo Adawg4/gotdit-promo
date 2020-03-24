@@ -95,24 +95,31 @@
 
 	<!--Main-->
 	<div class="container pt-24 md:pt-10 px-6 mx-auto flex flex-wrap flex-col md:flex-row items-center">
+		<div class="ais-InstantSearch">
+		  <h1>InstantSearch.js</h1>
 
-<div id="searchbox"></div>
-<hr>
-<div id="hits"></div>
-
-<!--Search card
-photo / connect link (3$ stripe)
-firstName lastName
-experiance
-position, company
-------
-
-Best available at (available) EST for (hours)
--->
-
-
+		  <div class="right-panel">
+		    <div id="searchbox"></div>
+		    <hr>
+		    <div id="hits"></div>
+		    <div id="pagination"></div>
+		  </div>
 		</div>
 
+
+		<!--Search card
+		photo / connect link (3$ stripe)
+		firstName lastName
+		experiance
+		position, company
+		------
+
+		Best available at (available) EST for (hours)
+		-->
+
+
+	</div>
+<!--
     <section class=" py-8">
 
         <div class="container mx-auto flex items-center flex-wrap pt-4 pb-12">
@@ -144,15 +151,14 @@ Best available: x am/pm EST</span>
       <span class="inline-block rounded-full px-3 py-1 text-xs font-semibold text-gray-600 mr-2">Hours open: x</span>
     </div>
   </div>
-    </div></section>
+    </div></section>-->
 </div>
 </body>
 
-<script src="https://polyfill.io/v3/polyfill.min.js?features=default%2CArray.prototype.find%2CArray.prototype.includes%2CPromise%2CObject.assign%2CObject.entries"></script>
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.css@7.3.1/themes/reset-min.css" integrity="sha256-t2ATOGCtAIZNnzER679jwcFcKYfLlw01gli6F6oszk8=" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.0.0/dist/algoliasearch-lite.umd.js" integrity="sha256-MfeKq2Aw9VAkaE9Caes2NOxQf6vUa8Av0JqcUXUGkd0=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.0.0/dist/instantsearch.production.min.js" integrity="sha256-6S7q0JJs/Kx4kb/fv0oMjS855QTz5Rc2hh9AkIUjUsk=" crossorigin="anonymous"></script>
+
 <script type="text/javascript">
 
 const searchClient = algoliasearch('5N8UIL7H78', '4340fe1b2b3cb1b436aaeb1f86afd4ef');
