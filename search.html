@@ -226,7 +226,7 @@ const search = instantsearch({
   searchClient,
 });
 
-const index = client.initIndex('prod_profile')
+const index = searchClient.initIndex('prod_profile')
 
 
 index.setSettings({
