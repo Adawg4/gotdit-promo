@@ -225,10 +225,9 @@ const search = instantsearch({
   indexName: 'prod_profile',
   searchClient,
 });
-//search.widgets.index.setSettings
-const index = instantsearch.widgets.index({
-  indexName: 'prod_profile',
-});
+
+const index = client.initIndex('prod_profile')
+
 
 index.setSettings({
   attributesToRetrieve: [
