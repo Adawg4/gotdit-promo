@@ -104,7 +104,7 @@
 		  <h1 class="my-4 text-3xl md:text-5xl text-purple-800  leading-tight text-center md:text-left slide-in-bottom-h1">Search</h1>
 
 		  <!--w-full h-16 px-3 rounded mb-8 focus:outline-none focus:shadow-outline text-xl px-8 shadow-lg border-->
-		    <div id="searchbox" class=""></div>
+		    <div id="searchbox"></div>
 		    <br>
 		    <hr>
 		    <br>
@@ -194,7 +194,7 @@ search.setSettings({
     'hours',
   ]
 });
-search.addWidgets([
+index.addWidgets([
   instantsearch.widgets.searchBox({
     container: document.querySelector('#searchbox'),
     placeholder: 'Search for someone, your problem, or a specific role.',
