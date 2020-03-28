@@ -212,37 +212,33 @@ search.addWidgets([
 
     templates: {
     	item: `
-      <h2>
-        <!--{{ __hitIndex }}-->
-        {{#helpers.highlight}}{ "attribute": "firstName" }{{/helpers.highlight}}
-      </h2>
-      <p>{{ description }}</p>
+   
 
 
 <!--start hit item-->
             <div class="w-full md:w-1/3 xl:w-1/4   p-2">
 	            <div class="border shadow bg-white rounded">    
 		            <div class="text-center  border-b py-6">
-			      	<img class="h-24 w-24 rounded-full mx-auto" src="{{ "attribute": "photo" }}">
+			      	<img class="h-24 w-24 rounded-full mx-auto" src="{{ photo }}">
 			      <p class="pt-2 text-lg font-semibold">
-			        {{ firstName }} lastName
+			        {{ firstName }} {{ lastName }}
 			      </p>
 			      <p class="text-sm">
-			        Experiance
+			        {{ experiance }}
 			      </p>
 			       <p class="text-sm">
-			        position, company
+			        {{ position }}, {{ company }}
 			      </p>
 			      <div class="mt-5">
-			        <a href="https://www.stripe.com" class="">
+			        <a href="https://www.stripe.com" class="{{ objectID }}">
 			        <button class="mx-auto lg:mx-0  text-white bg-purple-500 rounded shadow-lg py-2 px-4 text-xs font-semibold">
 		                 Contact info
 		                </button></a>
 			      </div>
 	    	</div>
 		      <span class="inline-block rounded-full px-3 py-1 text-xs font-semibold text-gray-600 mr-2">
-		Best available: x am/pm EST</span>
-		      <span class="inline-block rounded-full px-3 py-1 text-xs font-semibold text-gray-600 mr-2">Hours open: x</span>
+		Best available: {{ available }}</span>
+		      <span class="inline-block rounded-full px-3 py-1 text-xs font-semibold text-gray-600 mr-2">Hours open: {{ hours }}</span>
 		
                    
               </div>
