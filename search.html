@@ -134,7 +134,7 @@
 	<br>
 	 <div class="bg-white max-w-md rounded overflow-hidden shadow-lg border">
     <div class="text-center p-6  border-b flex-no-shrink">
-      <img class="h-24 w-24 rounded-full mx-auto" src="https://randomuser.me/api/portraits/men/24.jpg" alt="Randy Robertson" />
+      <img class="h-24 w-24 rounded-full mx-auto" src="https://randomuser.me/api/portraits/men/24.jpg" alt="Randy Robertson"/>
       <p class="pt-2 text-lg font-semibold">
         firstLast lastName
       </p>
@@ -225,7 +225,12 @@ const search = instantsearch({
   indexName: 'prod_profile',
   searchClient,
 });
-/*index.setSettings({
+
+const index = instantsearch.widgets.index({
+  indexName: 'prod_profile',
+});
+
+index.setSettings({
   attributesToRetrieve: [
     'firstName',
     'lastName',
@@ -236,13 +241,13 @@ const search = instantsearch({
     'available',
     'hours',
   ]
-});*/
+});
 search.addWidgets([
   instantsearch.widgets.searchBox({
     container: document.querySelector('#searchbox'),
     placeholder: 'Search for someone, your problem, or a specific role.',
   }),
-
+ 
   instantsearch.widgets.hits({
     container: '#hits',
 
