@@ -15,7 +15,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Didact+Gothic&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://unpkg.com/tailwindcss/dist/tailwind.min.css">
 	<!--Replace with your tailwind.css once created-->
-<link href="https://unpkg.com/@tailwindcss/custom-forms/dist/custom-forms.min.css" rel="stylesheet">
+	<!--<link href="https://unpkg.com/@tailwindcss/custom-forms/dist/custom-forms.min.css" rel="stylesheet">-->
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
 
 	<!-- Animation CSS-->
@@ -62,7 +62,8 @@
 <!-- End PS -->
 <script src="https://polyfill.io/v3/polyfill.min.js?features=default%2CArray.prototype.find%2CArray.prototype.includes%2CPromise%2CObject.assign%2CObject.entries"></script>
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.css@7.3.1/themes/reset-min.css" integrity="sha256-t2ATOGCtAIZNnzER679jwcFcKYfLlw01gli6F6oszk8=" crossorigin="anonymous">
+<!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.css@7.3.1/themes/reset-min.css" integrity="sha256-t2ATOGCtAIZNnzER679jwcFcKYfLlw01gli6F6oszk8=" crossorigin="anonymous">-->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.css@7.3.1/themes/algolia-min.css" integrity="sha256-HB49n/BZjuqiCtQQf49OdZn63XuKFaxcIHWf0HNKte8=" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.0.0/dist/algoliasearch-lite.umd.js" integrity="sha256-MfeKq2Aw9VAkaE9Caes2NOxQf6vUa8Av0JqcUXUGkd0=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.0.0/dist/instantsearch.production.min.js" integrity="sha256-6S7q0JJs/Kx4kb/fv0oMjS855QTz5Rc2hh9AkIUjUsk=" crossorigin="anonymous"></script>
 
@@ -101,8 +102,8 @@
 		<div class="ais-InstantSearch">
 		  <h1 class="my-4 text-3xl md:text-5xl text-purple-800  leading-tight text-center md:text-left slide-in-bottom-h1">Search</h1>
 
-		  
-		    <div id="searchbox" class="w-full h-16 px-3 rounded mb-8 focus:outline-none focus:shadow-outline text-xl px-8 shadow-lg border"></div>
+		  <!--w-full h-16 px-3 rounded mb-8 focus:outline-none focus:shadow-outline text-xl px-8 shadow-lg border-->
+		    <div id="searchbox" class=""></div>
 		    <br>
 		    <hr>
 		    <br>
@@ -135,7 +136,14 @@
 
   
   <div>
-
+templates: {
+      item: `
+        <article>
+          <p>Name: {{#helpers.highlight}}{ "attribute": "name", "highlightedTagName": "mark" }{{/helpers.highlight}}</p>
+          <p>Description: {{#helpers.snippet}}{ "attribute": "description", "highlightedTagName": "mark" }{{/helpers.snippet}}</p>
+        </article>
+      `
+    }
   <div class="bg-white max-w-md rounded overflow-hidden shadow-lg border">
     <div class="text-center p-6  border-b flex-no-shrink">
       <img class="h-24 w-24 rounded-full mx-auto" src="https://randomuser.me/api/portraits/men/24.jpg" alt="Randy Robertson" />
@@ -173,7 +181,18 @@ const search = instantsearch({
   indexName: 'prod_profile',
   searchClient,
 });
-
+search.setSettings({
+  attributesToRetrieve: [
+    'firstName',
+    'lastName',
+    'photo',
+    'experiance',//mispelled but fix indices spelling later
+    'position',
+    'company',
+    'available',
+    'hours',
+  ]
+});
 search.addWidgets([
   instantsearch.widgets.searchBox({
     container: document.querySelector('#searchbox'),
