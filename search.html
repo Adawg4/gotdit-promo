@@ -226,21 +226,6 @@ const search = instantsearch({
   searchClient,
 });
 
-const index = searchClient.initIndex('prod_profile')
-
-
-index.setSettings({
-  attributesToRetrieve: [
-    'firstName',
-    'lastName',
-    'photo',
-    'experiance',//mispelled but fix indices spelling later
-    'position',
-    'company',
-    'available',
-    'hours',
-  ]
-});
 
 search.addWidgets([
   instantsearch.widgets.searchBox({
