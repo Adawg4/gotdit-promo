@@ -206,18 +206,29 @@ search.addWidgets([
     container: document.querySelector('#searchbox'),
     placeholder: 'Search for someone, your problem, or a specific role.',
   }),
- 
+ instantsearch.widgets.searchBox({
+  // ...https://www.algolia.com/doc/api-reference/widgets/search-box/js/
+  cssClasses: {
+    root: 'MyCustomSearchBox',
+    form: [
+      'w-full h-16 px-3 rounded mb-8 focus:outline-none focus:shadow-outline text-xl px-8 shadow-lg',
+    ],
+
+  },
+});
   instantsearch.widgets.hits({
     container: '#hits',
     //https://www.algolia.com/doc/api-reference/widgets/hits/js/#widget-param-cssclasses
+    //https://www.algolia.com/doc/api-reference/widgets/hits/js/#about-this-widget
  	cssClasses: {
- 		list : ['container mx-auto flex items-center flex-wrap pt-4 pb-12']
+ 		list : ['container mx-auto flex items-center flex-wrap pt-4 pb-12'],
+ 		item:['w-full md:w-1/3 xl:w-1/4   p-2'];
  	},
 
     templates: {
     	item: `
 <!--start hit item-->
-            <div class="w-full md:w-1/3 xl:w-1/4   p-2">
+            <div class="">
 	            <div class="border shadow bg-white rounded">    
 		            <div class="text-center  border-b py-6">
 			      	<img class="h-24 w-24 rounded-full mx-auto" src="{{ photo }}">
