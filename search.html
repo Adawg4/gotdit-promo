@@ -182,7 +182,7 @@ const search = instantsearch({
   indexName: 'prod_profile',
   searchClient,
 });
-search.setSettings({
+index.setSettings({
   attributesToRetrieve: [
     'firstName',
     'lastName',
@@ -194,7 +194,7 @@ search.setSettings({
     'hours',
   ]
 });
-index.addWidgets([
+search.addWidgets([
   instantsearch.widgets.searchBox({
     container: document.querySelector('#searchbox'),
     placeholder: 'Search for someone, your problem, or a specific role.',
