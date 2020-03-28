@@ -111,9 +111,9 @@
 			    <hr>
 			    <br>
 			    <!--item display-->
-        <div class="container mx-auto flex items-center flex-wrap pt-4 pb-12">
+  
 			    <div id="hits"></div>
-			</div>
+		
 			    <br>
 			    <hr>
 			    <br>
@@ -209,12 +209,13 @@ search.addWidgets([
  
   instantsearch.widgets.hits({
     container: '#hits',
+    //https://www.algolia.com/doc/api-reference/widgets/hits/js/#widget-param-cssclasses
+ 	cssClasses: {
+ 		list : ['container mx-auto flex items-center flex-wrap pt-4 pb-12']
+ 	},
 
     templates: {
     	item: `
-   
-
-
 <!--start hit item-->
             <div class="w-full md:w-1/3 xl:w-1/4   p-2">
 	            <div class="border shadow bg-white rounded">    
