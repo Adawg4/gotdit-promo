@@ -67,6 +67,8 @@
 <link rel="stylesheet" type="text/css" href="./reset-min.css">
 <script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.0.0/dist/algoliasearch-lite.umd.js" integrity="sha256-MfeKq2Aw9VAkaE9Caes2NOxQf6vUa8Av0JqcUXUGkd0=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.0.0/dist/instantsearch.production.min.js" integrity="sha256-6S7q0JJs/Kx4kb/fv0oMjS855QTz5Rc2hh9AkIUjUsk=" crossorigin="anonymous"></script>
+<!-- Load Stripe.js on your website. -->
+<script src="https://js.stripe.com/v3"></script>
 
 </head>
 
@@ -169,7 +171,21 @@ Best available: x am/pm EST</span>
       <span class="inline-block rounded-full px-3 py-1 text-xs font-semibold text-gray-600 mr-2">Hours open: x</span>
     </div>
   </div>
-    </div></section>-->
+    </div></section>
+
+
+
+Create a button that your customers click to complete their purchase. Customize the styling to suit your branding. 
+  style="background-color:#6772E5;color:#FFF;padding:24px 24px;border:0;border-radius:40px;font-size:1em"
+  id="checkout-button-sku_G4SVevUESLgxZ7"
+  role="link"
+>
+  Preorder MailCheddar here!
+</button>
+<div id="error-message"></div>
+
+
+-->
 </div>
 <!-- Appzi: Capture Insightful Feedback -->
 <script async src="https://w.appzi.io/bootstrap/bundle.js?token=vGfst"></script>
@@ -182,7 +198,7 @@ const search = instantsearch({
   indexName: 'prod_profile',
   searchClient,
 });
-index.setSettings({
+/*index.setSettings({
   attributesToRetrieve: [
     'firstName',
     'lastName',
@@ -193,7 +209,7 @@ index.setSettings({
     'available',
     'hours',
   ]
-});
+});*/
 search.addWidgets([
   instantsearch.widgets.searchBox({
     container: document.querySelector('#searchbox'),
@@ -206,7 +222,35 @@ search.addWidgets([
 ]);
 
 search.start();
-</script>
+/*
+(function() {
+  var stripe = Stripe('pk_live_7kKMB8kan903TYEZu0nNu57R003FVw2loE');
 
+  var checkoutButton = document.getElementById('checkout-button-sku_G4SVevUESLgxZ7');
+  checkoutButton.addEventListener('click', function () {
+    // When the customer clicks on the button, redirect
+    // them to Checkout.
+    stripe.redirectToCheckout({
+      items: [{sku: 'sku_G4SVevUESLgxZ7', quantity: 1}],
+
+      // Do not rely on the redirect to the successUrl for fulfilling
+      // purchases, customers may not always reach the success_url after
+      // a successful payment.
+      // Instead use one of the strategies described in
+      // https://stripe.com/docs/payments/checkout/fulfillment
+      successUrl: window.location.protocol + '//adawg4.github.io/gotdit-promo/success',
+      cancelUrl: window.location.protocol + '//adawg4.github.io/gotdit-promo/canceled',
+    })
+    .then(function (result) {
+      if (result.error) {
+        // If `redirectToCheckout` fails due to a browser or network
+        // error, display the localized error message to your customer.
+        var displayError = document.getElementById('error-message');
+        displayError.textContent = result.error.message;
+      }
+    });
+  });
+})();*/
+</script>
 </body>
 </html>
