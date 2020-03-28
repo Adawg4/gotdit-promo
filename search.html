@@ -225,7 +225,7 @@ const search = instantsearch({
   indexName: 'prod_profile',
   searchClient,
 });
-
+//search.widgets.index.setSettings
 const index = instantsearch.widgets.index({
   indexName: 'prod_profile',
 });
@@ -242,6 +242,7 @@ index.setSettings({
     'hours',
   ]
 });
+
 search.addWidgets([
   instantsearch.widgets.searchBox({
     container: document.querySelector('#searchbox'),
@@ -251,7 +252,7 @@ search.addWidgets([
   instantsearch.widgets.hits({
     container: '#hits',
 
-    templates: {
+    /*templates: {
     	item: `
       <h2>
         {{ __hitIndex }}:
@@ -260,7 +261,7 @@ search.addWidgets([
       <p>{{ description }}</p>
     `,
     	empty: 'No results for <q>{{ query }}</q>',
-  	},
+  	},*/
   })
 ]);
 
