@@ -233,9 +233,10 @@ setTimeout(function(){
   var stripe = Stripe('pk_live_7kKMB8kan903TYEZu0nNu57R003FVw2loE');
 
   var checkoutButton = document.getElementsByClassName('checkout-button-sku_Gzf9skCBEGnhDu');
-  checkoutButton.addEventListener('click', function () {
-    // When the customer clicks on the button, redirect
+  Array.from(checkoutButton).forEach(function(checkoutButton) {
+    // checkoutButton.addEventListener('click', function () {When the customer clicks on the button, redirect
     // them to Checkout.
+
     stripe.redirectToCheckout({
       items: [{sku: 'sku_Gzf9skCBEGnhDu', quantity: 1}],
 
