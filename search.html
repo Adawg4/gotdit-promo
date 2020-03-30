@@ -234,7 +234,8 @@ setTimeout(function(){
 
   var checkoutButton = document.getElementsByClassName('checkout-button-sku_Gzf9skCBEGnhDu');
   Array.from(checkoutButton).forEach(function(checkoutButton) {
-    // checkoutButton.addEventListener('click', function () {When the customer clicks on the button, redirect
+     checkoutButton.addEventListener('click', function () {
+     	//When the customer clicks on the button, redirect
     // them to Checkout.
 
     stripe.redirectToCheckout({
@@ -246,7 +247,7 @@ setTimeout(function(){
       // Instead use one of the strategies described in
       // https://stripe.com/docs/payments/checkout/fulfillment
       successUrl: window.location.protocol + '//gotdit.com/success',
-      cancelUrl: window.location.protocol + '//gotdit.com/canceled',
+      cancelUrl: window.location.protocol + '//gotdit.com/',
     })
     .then(function (result) {
       if (result.error) {
@@ -258,6 +259,7 @@ setTimeout(function(){
     });
   });
 })();
+});
 }, 2000);
 </script>
 </body>
